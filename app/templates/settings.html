@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Settings | ChurnGuard AI{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2>Settings</h2>
+  <div class="card p-4">
+    <h4>Risk thresholds</h4>
+    <ul>
+      <li>Low risk: below 30%</li>
+      <li>Medium risk: 30% to 69%</li>
+      <li>High risk: 70% and above</li>
+    </ul>
+    <p class="text-muted">These thresholds are configurable business rules and not universal standards.</p>
+  </div>
+</div>
+{% endblock %}

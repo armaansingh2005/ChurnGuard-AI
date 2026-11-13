@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Prediction History | ChurnGuard AI{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2>Prediction History</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer ID</th>
+          <th>Prediction</th>
+          <th>Probability</th>
+          <th>Risk</th>
+          <th>Model</th>
+          <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in records %}
+        <tr>
+          <td>{{ record.id }}</td>
+          <td>{{ record.customer_id }}</td>
+          <td>{{ 'Churn' if record.churn_prediction else 'Retain' }}</td>
+          <td>{{ record.churn_probability }}%</td>
+          <td>{{ record.risk_category }}</td>
+          <td>{{ record.model_version }}</td>
+          <td>{{ record.created_at }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7">No prediction history yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

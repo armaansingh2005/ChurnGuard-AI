@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Bulk Prediction | ChurnGuard AI{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2>Bulk Customer Prediction</h2>
+  <form method="post" enctype="multipart/form-data" class="card p-4">
+    <label class="form-label">Upload a churn dataset CSV</label>
+    <input type="file" name="csv_file" class="form-control" accept=".csv" required>
+    <button type="submit" class="btn btn-primary mt-3">Run Bulk Prediction</button>
+  </form>
+
+  {% if total_rows is not none %}
+  <div class="card mt-4 p-4">
+    <h4>Prediction Results</h4>
+    <p>{{ total_rows }} rows processed.</p>
+    {% if results %}
+    <div class="table-responsive">
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Prediction</th>
+            <th>Probability</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in results %}
+          <tr>
+            <td>{{ row.customerID }}</td>
+            <td>{{ 'Yes' if row.churn_prediction else 'No' }}</td>
+            <td>{{ row.churn_probability }}%</td>
+            <td>{{ row.risk_category }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

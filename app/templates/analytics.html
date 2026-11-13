@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Analytics | ChurnGuard AI{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2>Customer Analytics</h2>
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="metric-card small-card">
+        <div class="metric-label">Total Customers</div>
+        <div class="metric-value">{{ data.metrics.total_customers }}</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="metric-card small-card">
+        <div class="metric-label">Churn Rate</div>
+        <div class="metric-value">{{ data.metrics.overall_churn_rate }}%</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="metric-card small-card">
+        <div class="metric-label">Avg Monthly Charges</div>
+        <div class="metric-value">$ {{ data.metrics.average_monthly_charges }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card p-4">
+    <h4>Churn Distribution</h4>
+    <pre>{{ data.charts.churn_distribution }}</pre>
+  </div>
+  <div class="card p-4 mt-4">
+    <h4>Contract Type Churn Rates</h4>
+    <pre>{{ data.charts.contract_churn }}</pre>
+  </div>
+  <div class="card p-4 mt-4">
+    <h4>Payment Method Churn Rates</h4>
+    <pre>{{ data.charts.payment_churn }}</pre>
+  </div>
+</div>
+{% endblock %}
