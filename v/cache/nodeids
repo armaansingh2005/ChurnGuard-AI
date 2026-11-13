@@ -1,0 +1,4 @@
+[
+  "tests/test_prediction.py::test_prediction_api_output",
+  "tests/test_prediction.py::test_risk_category_thresholds"
+]
