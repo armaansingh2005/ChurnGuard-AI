@@ -379,7 +379,7 @@ Dronacharya College of Engineering, Gurugram
 ### Connect With Me
 
 - LinkedIn: https://www.linkedin.com/in/armaan-singh-511a78323/
-- GitHub: https://github.com/YOUR_USERNAME
+- GitHub:(https://github.com/armaansingh2005)
 
 ---
 
